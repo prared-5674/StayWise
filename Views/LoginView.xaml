@@ -12,18 +12,11 @@
         Background="Transparent"
         AllowsTransparency="True"
         MouseDown="Window_MouseDown">
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
-    </Window.Resources>
-
-    <Window.Visibility>
-        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
-    </Window.Visibility>
-
+    
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="/Resources/back-image.jpg"
-                        Stretch="None"/>
+            <ImageBrush ImageSource="pack://application:,,,/Resources/back-image.jpg"
+            Stretch="None"/>
         </Border.Background>
 
         <Border CornerRadius="10"                    

@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\back-image.jpg" />
+    <None Remove="Resources\back-image.jpg.url" />
+    <None Remove="Resources\key-icon.png" />
+    <None Remove="Resources\logo.png" />
+    <None Remove="Resources\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Fody" Version="6.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,7 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\back-image.jpg" />
+    <Resource Include="Resources\back-image.jpg.url" />
+    <Resource Include="Resources\key-icon.png" />
+    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\user-icon.png" />
   </ItemGroup>
 
 </Project>

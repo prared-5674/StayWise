@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using StayWise.ViewsModels;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StayWise.Views
@@ -11,6 +12,7 @@ namespace StayWise.Views
         public LoginView()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

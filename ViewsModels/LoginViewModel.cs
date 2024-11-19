@@ -15,7 +15,6 @@ namespace StayWise.ViewsModels
         private string _username;
         private SecureString _password;
         private string _errorMessage;
-        private bool _isViewVisible = true;
 
         private IUserRepository userRepository;
 
@@ -24,9 +23,6 @@ namespace StayWise.ViewsModels
         public SecureString Password { get; set; }
 
         public string ErrorMessage { get; set; }
-
-
-        public bool IsViewVisible { get; set; }
 
         public ICommand LoginCommand { get; }
         public ICommand RecoverPasswordCommand { get; }
@@ -58,7 +54,6 @@ namespace StayWise.ViewsModels
             {
                 Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(Username), null);
-                IsViewVisible = false;
             }
             else
             {
