@@ -1,8 +1,10 @@
-﻿using StayWise.Helpers;
+﻿using PropertyChanged;
+using StayWise.Helpers;
 
 namespace StayWise.ViewsModels
 {
-    internal class HomeViewModel : ViewModelBase 
+    [AddINotifyPropertyChangedInterface]
+    public class HomeViewModel : ViewModelBase 
     {
         public HomeViewModel()
         {
