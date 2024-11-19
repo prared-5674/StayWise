@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using StayWise.Interfaces;
 using StayWise.Model;
+using System.Net;
 
 namespace StayWise.ViewsModels
 {
@@ -21,7 +22,7 @@ namespace StayWise.ViewsModels
 
         private void LoadCurrentUserData()
         {
-            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+            var user = userRepository.GetByUsername("admin");
             if (user != null)
             {
                 CurrentUserAccount.Username = user.Username;

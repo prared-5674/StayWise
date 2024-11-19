@@ -1,17 +1,19 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace StayWise.Helpers
 {
     public abstract class SQLConnection
     {
         private readonly string _connectionString;
+
         public SQLConnection()
         {
-            _connectionString = "Server=(local); Database=StayWiseLoginDb; Integrated Security=true";
+            _connectionString = "Server=localhost;Port=3306;Database=StayWiseLoginDb;User=root;Password=admin;";
         }
-        protected SqlConnection GetConnection()
+
+        protected MySqlConnection GetConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new MySqlConnection(_connectionString);
         }
     }
 }

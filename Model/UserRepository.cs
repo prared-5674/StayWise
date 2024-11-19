@@ -1,15 +1,12 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
 using StayWise.Helpers;
 using StayWise.Interfaces;
-using System.Data;
 using System.Net;
 
 namespace StayWise.Model
 {
     public class UserRepository : SQLConnection, IUserRepository
     {
-        public string? UserName { get; private set; }
-
         public void Add(UserModel userModel)
         {
             throw new NotImplementedException();
@@ -19,13 +16,13 @@ namespace StayWise.Model
         {
             bool validUser;
             using (var connection = GetConnection())
-            using (var command = new SqlCommand())
+            using (var command = new MySqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select *from [User] where username=@username and [password]=@password";
-                command.Parameters.Add("@username", SqlDbType.NVarChar).Value = credential.UserName;
-                command.Parameters.Add("@password", SqlDbType.NVarChar).Value = credential.Password;
+                command.CommandText = "select * from User where username=@username and password=@password";
+                command.Parameters.AddWithValue("@username", credential.UserName);
+                command.Parameters.AddWithValue("@password", credential.Password);
                 validUser = command.ExecuteScalar() == null ? false : true;
             }
             return validUser;
@@ -35,43 +32,47 @@ namespace StayWise.Model
         {
             throw new NotImplementedException();
         }
+
         public IEnumerable<UserModel> GetByAll()
         {
             throw new NotImplementedException();
         }
+
         public UserModel GetById(int id)
         {
             throw new NotImplementedException();
         }
+
         public UserModel GetByUsername(string username)
         {
             UserModel user = null;
             using (var connection = GetConnection())
-            using (var command = new SqlCommand())
+            using (var command = new MySqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select *from [User] where username=@username";
-                command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+                command.CommandText = "select * from User where username=@username";
+                command.Parameters.AddWithValue("@username", username ?? throw new ArgumentNullException(nameof(username)));
+
                 using (var reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         user = new UserModel()
                         {
-                            Id = reader[0].ToString(),
-                            Username = reader[1].ToString(),
+                            Id = reader[0]?.ToString() ?? string.Empty,
+                            Username = reader[1]?.ToString() ?? string.Empty,
                             Password = string.Empty,
-                            Name = reader[3].ToString(),
-                            LastName = reader[4].ToString(),
-                            Email = reader[5].ToString(),
+                            Name = reader[3]?.ToString() ?? string.Empty,
+                            LastName = reader[4]?.ToString() ?? string.Empty,
+                            Email = reader[5]?.ToString() ?? string.Empty,
                         };
                     }
                 }
             }
-            UserName = user.Username;
             return user;
         }
+
         public void Remove(int id)
         {
             throw new NotImplementedException();
