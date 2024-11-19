@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Interop;
+using StayWise.ViewsModels;
 
 namespace StayWise.Views
 {
@@ -13,6 +14,7 @@ namespace StayWise.Views
         public DashBoardView()
         {
             InitializeComponent();
+            this.DataContext = new MainViewModel();
 
         }
 

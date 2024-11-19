@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace StayWise.ViewModels
+namespace StayWise.Helpers
 {
     public class ViewModelCommand : ICommand
     {

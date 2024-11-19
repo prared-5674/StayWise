@@ -1,7 +1,7 @@
 ﻿using PropertyChanged;
+using StayWise.Helpers;
 using StayWise.Interfaces;
 using StayWise.Model;
-using StayWise.ViewModels;
 using System.Net;
 using System.Security;
 using System.Security.Principal;
