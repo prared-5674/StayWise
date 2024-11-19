@@ -1,4 +1,5 @@
 ﻿using StayWise.ViewsModels;
+using System.Security;
 using System.Windows;
 using System.Windows.Input;
 
@@ -9,10 +10,14 @@ namespace StayWise.Views
     /// </summary>
     public partial class LoginView : Window
     {
+        public static readonly DependencyProperty PasswordProperty =
+    DependencyProperty.Register("Password", typeof(SecureString), typeof(LoginView));
+
         public LoginView()
         {
             InitializeComponent();
             this.DataContext = new LoginViewModel();
+            txtPassword.PasswordChanged += OnPasswordChanged;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -32,5 +37,17 @@ namespace StayWise.Views
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e) { }
+
+
+        public SecureString Password
+        {
+            get { return (SecureString)GetValue(PasswordProperty); }
+            set { SetValue(PasswordProperty, value); }
+        }
+
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            Password = txtPassword.SecurePassword;
+        }
     }
 }
