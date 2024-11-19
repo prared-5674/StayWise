@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\back-image.jpg" />
-    <Resource Include="Resources\back-image.jpg.url" />
     <Resource Include="Resources\key-icon.png" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\user-icon.png" />
