@@ -38,24 +38,6 @@ namespace StayWise.ViewModels
             BrowseImageCommand = new RelayCommand(() => BrowseIdProof());
 
             SelectRoomCommand = new RelayCommand(ShowRoomSelection);
-
-            AttachPropertyChangeHandlers();
-
-            if (Customer is INotifyPropertyChanged notifyPropertyChanged)
-            {
-                notifyPropertyChanged.PropertyChanged += OnCustomerPropertyChanged;
-            }
-        }
-
-        private void AttachPropertyChangeHandlers()
-        {
-            if (Customer is INotifyPropertyChanged notifyPropertyChanged)
-            {
-                notifyPropertyChanged.PropertyChanged += (s, e) =>
-                {
-                    if (!_isDirty) _isDirty = true;
-                };
-            }
         }
 
         private void OnCustomerPropertyChanged(object sender, PropertyChangedEventArgs e)

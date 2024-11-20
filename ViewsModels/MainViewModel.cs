@@ -11,10 +11,6 @@ namespace StayWise.ViewsModels
     [AddINotifyPropertyChangedInterface]
     public class MainViewModel
     {
-        private UserAccountModel _currentUserAccount;
-        private string _caption;
-        private IconChar _icon;
-
         private IUserRepository userRepository;
 
         public UserAccountModel CurrentUserAccount { get; set; }
