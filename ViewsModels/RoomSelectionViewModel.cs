@@ -41,7 +41,7 @@ namespace StayWise.ViewModels
                 {
                     var room = new Room
                     {
-                        RoomNumber = $"{floorNum}{roomNum.ToString("D2")}",
+                        RoomNumber = int.Parse($"{floorNum}{roomNum:D2}"),
                         PricePerBed = 3000 + (floorNum * 500)
                     };
 
@@ -100,7 +100,7 @@ namespace StayWise.ViewModels
         {
             SelectedAllocation = new RoomAllocation
             {
-                FloorNumber = int.Parse(SelectedRoom.RoomNumber[0].ToString()),
+                FloorNumber = int.Parse(SelectedRoom.RoomNumber.ToString()),
                 RoomNumber = SelectedRoom.RoomNumber,
                 BedNumber = 1,
                 IsSelected = true,
