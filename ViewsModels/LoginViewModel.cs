@@ -1,62 +1,53 @@
-﻿using PropertyChanged;
-using StayWise.Helpers;
+﻿using StayWise.Helpers;
 using StayWise.Interfaces;
 using StayWise.Model;
+using StayWise.Views;
+using StayWise.ViewsModels;
 using System.Net;
 using System.Security;
-using System.Security.Principal;
+using System.Windows;
 using System.Windows.Input;
 
-namespace StayWise.ViewsModels
+public class LoginViewModel : MainViewModel
 {
-    [AddINotifyPropertyChangedInterface]
-    public class LoginViewModel : MainViewModel
+    private readonly IUserRepository userRepository;
+
+    public string Username { get; set; }
+    public SecureString Password { get; set; }
+    public string ErrorMessage { get; set; }
+    public ICommand LoginCommand { get; }
+
+    public LoginViewModel()
     {
-        private string _username;
-        private SecureString _password;
-        private string _errorMessage;
+        userRepository = new UserRepository();
+        LoginCommand = new RelayCommand(ExecuteLogin, CanExecuteLogin);
+        System.Diagnostics.Debug.WriteLine("LoginViewModel initialized");
+    }
 
-        private IUserRepository userRepository;
+    private bool CanExecuteLogin()
+    {
+        var canExecute = !string.IsNullOrWhiteSpace(Username) &&
+                        Username.Length >= 3 &&
+                        Password != null &&
+                        Password.Length >= 3;
+        System.Diagnostics.Debug.WriteLine($"CanExecuteLogin: {canExecute}");
+        return canExecute;
+    }
 
-        public string Username { get; set; }
+    private void ExecuteLogin()
+    {
+        System.Diagnostics.Debug.WriteLine("ExecuteLogin called");
+        var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
 
-        public SecureString Password { get; set; }
-
-        public string ErrorMessage { get; set; }
-
-        public ICommand LoginCommand { get; }
-        public ICommand RecoverPasswordCommand { get; }
-        public ICommand ShowPasswordCommand { get; }
-        public ICommand RememberPasswordCommand { get; }
-
-        public LoginViewModel()
+        if (isValidUser)
         {
-            userRepository = new UserRepository();
+            var dashboardView = new DashBoardView();
+            dashboardView.Show();
+            Application.Current.Windows.OfType<LoginView>().FirstOrDefault()?.Close();
         }
-
-        private bool CanExecuteLoginCommand(object obj)
+        else
         {
-            bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
-                Password == null || Password.Length < 3)
-                validData = false;
-            else
-                validData = true;
-            return validData;
-        }
-
-        private void ExecuteLoginCommand(object obj)
-        {
-            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
-            if (isValidUser)
-            {
-                Thread.CurrentPrincipal = new GenericPrincipal(
-                    new GenericIdentity(Username), null);
-            }
-            else
-            {
-                ErrorMessage = "* Invalid username or password";
-            }
+            ErrorMessage = "* Invalid username or password";
         }
     }
 }

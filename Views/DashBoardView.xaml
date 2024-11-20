@@ -37,10 +37,10 @@
 
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Height="35" Margin="15,25,0,40">
-                        <Image Source="pack://application:,,,/Resources/Logo.png" Height="30"/>
+                        <Image Source="pack://application:,,,/Resources/Logo_base.png" Height="30"/>
                         <TextBlock Text="StayWise"
-                                 Foreground="{StaticResource titleColor2}"
-                                 FontSize="20"
+                                 Foreground="Black"
+                                 FontSize="25"
                                  FontFamily="Montserrat"
                                  FontWeight="Medium"
                                  VerticalAlignment="Center"
@@ -48,12 +48,12 @@
                     </StackPanel>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                               Tag="{StaticResource color1}"
+                               Tag="{StaticResource color2}"
                                  Click="ShowDashboardButton_Click"
                                IsChecked="True">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Dashboard" Foreground="Black" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 

@@ -15,21 +15,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Header -->
             <TextBlock Text="Add New Resident" 
                      FontSize="24" 
                      FontWeight="SemiBold" 
                      Margin="0,0,0,20"
                      Foreground="{StaticResource titleColor1}"/>
 
-            
-            <!-- Form Content -->
             <StackPanel Grid.Row="1">
-
                 <Border Background="{StaticResource panelColor}"
-        CornerRadius="10"
-        Padding="20"
-        Margin="0,0,0,20">
+                        CornerRadius="10"
+                        Padding="20"
+                        Margin="0,0,0,20">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -38,33 +34,33 @@
 
                         <StackPanel>
                             <TextBlock Text="Room Selection"
-                     FontSize="18"
-                     FontWeight="SemiBold"
-                     Margin="0,0,0,10"
-                     Foreground="{StaticResource titleColor2}"/>
+                                     FontSize="18"
+                                     FontWeight="SemiBold"
+                                     Margin="0,0,0,10"
+                                     Foreground="{StaticResource titleColor2}"/>
 
                             <TextBlock Foreground="{StaticResource titleColor3}"
-                     TextWrapping="Wrap">
-                <Run Text="Selected Room: "/>
-                <Run Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
-                <Run Text=" | Bed: "/>
-                <Run Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
-                <Run Text=" | Amount: ₹"/>
-                <Run Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
+                                     TextWrapping="Wrap">
+                                <Run Text="Selected Room: "/>
+                                <Run Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
+                                <Run Text=" | Bed: "/>
+                                <Run Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
+                                <Run Text=" | Amount: ₹"/>
+                                <Run Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
                             </TextBlock>
                         </StackPanel>
 
                         <Button Grid.Column="1"
-                Content="Select Room"
-                Command="{Binding SelectRoomCommand}"
-                Style="{StaticResource controlButton}"
-                Width="120"
-                Tag="{StaticResource color2}"
-                VerticalAlignment="Center"/>
+                                Content="Select Room"
+                                Command="{Binding SelectRoomCommand}"
+                                Style="{StaticResource controlButton}"
+                                Background="MediumVioletRed"
+                                Width="120"
+                                Tag="{StaticResource color2}"
+                                VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
-                
-                <!-- Personal Information -->
+
                 <Border Background="{StaticResource panelColor}"
                         CornerRadius="10"
                         Padding="20">
@@ -88,34 +84,38 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- First Column -->
                             <StackPanel Grid.Column="0" Grid.Row="0" Margin="0,0,0,15">
                                 <TextBlock Text="First Name" Foreground="{StaticResource titleColor3}"/>
                                 <TextBox Text="{Binding Customer.PersonalInfo.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                                         Style="{StaticResource CustomTextBoxStyle}"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2" Grid.Row="0" Margin="0,0,0,15">
                                 <TextBlock Text="Last Name" Foreground="{StaticResource titleColor3}"/>
                                 <TextBox Text="{Binding Customer.PersonalInfo.LastName}"
+                                         Style="{StaticResource CustomTextBoxStyle}"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,15">
                                 <TextBlock Text="Phone Number" Foreground="{StaticResource titleColor3}"/>
                                 <TextBox Text="{Binding Customer.PersonalInfo.PhoneNumber}"
+                                         Style="{StaticResource CustomTextBoxStyle}"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="2" Grid.Row="1" Margin="0,0,0,15">
                                 <TextBlock Text="Alternate Phone" Foreground="{StaticResource titleColor3}"/>
                                 <TextBox Text="{Binding Customer.PersonalInfo.AlternatePhone}"
+                                         Style="{StaticResource CustomTextBoxStyle}"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="0" Grid.Row="2" Margin="0,0,0,15">
                                 <TextBlock Text="Email" Foreground="{StaticResource titleColor3}"/>
                                 <TextBox Text="{Binding Customer.PersonalInfo.Email}"
+                                         Style="{StaticResource CustomTextBoxStyle}"
                                          Margin="0,5,0,0"/>
                             </StackPanel>
 
@@ -137,7 +137,6 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Occupation Details -->
                 <Border Background="{StaticResource panelColor}"
                         CornerRadius="10"
                         Padding="20">
@@ -159,18 +158,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Occupation" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.Occupation}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Company Name" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.CompanyName}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Company Phone" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.CompanyPhone}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -179,18 +181,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Job Title" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.JobTitle}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Monthly Income" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.MonthlyIncome}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Company Email" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.OccupationInfo.CompanyEmail}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -198,7 +203,6 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Address Information -->
                 <Border Background="{StaticResource panelColor}"
                         CornerRadius="10"
                         Padding="20">
@@ -220,18 +224,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Address Line 1" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.AddressLine1}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="City" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.City}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Country" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.Country}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -240,18 +247,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Address Line 2" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.AddressLine2}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="State" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.State}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="PIN Code" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.CompanyAddress.PinCode}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -259,7 +269,6 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Home Address -->
                 <Border Background="{StaticResource panelColor}"
                         CornerRadius="10"
                         Padding="20">
@@ -281,18 +290,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Address Line 1" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.AddressLine1}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="City" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.City}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="Country" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.Country}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -301,18 +313,21 @@
                                 <StackPanel>
                                     <TextBlock Text="Address Line 2" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.AddressLine2}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="State" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.State}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
 
                                 <StackPanel>
                                     <TextBlock Text="PIN Code" Foreground="{StaticResource titleColor3}"/>
                                     <TextBox Text="{Binding Customer.HomeAddress.PinCode}"
+                                             Style="{StaticResource CustomTextBoxStyle}"
                                              Margin="0,5,0,0"/>
                                 </StackPanel>
                             </StackPanel>
@@ -321,7 +336,6 @@
                 </Border>
             </StackPanel>
 
-            <!-- Buttons -->
             <StackPanel Grid.Row="2" 
                       Orientation="Horizontal"
                       HorizontalAlignment="Right"
@@ -329,6 +343,7 @@
                 <Button Content="Cancel"
                         Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
+                        Height="25"
                         Width="100"/>
                 <Button Content="Save"
                         Command="{Binding SaveCommand}"

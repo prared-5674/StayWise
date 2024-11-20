@@ -33,8 +33,8 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
+                    <GradientStop Color="white" Offset="9"/>
+                    <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -64,7 +64,7 @@
                     <Button x:Name="btnMinimize"                           
                             BorderThickness="0"
                             Content="-"
-                            Foreground="White"
+                            Foreground="Black"
                             FontSize="16"
                             FontFamily="Montserrat"
                             Cursor="Hand"
@@ -73,7 +73,7 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28AEED"/>
+                                <Setter Property="Background" Value="white"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="#278BEF"/>
@@ -107,10 +107,11 @@
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Setter Property="Background" Value="Red"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C62DAE"/>
+                                        <Setter Property="Background" Value="DarkRed"
+                                                />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -134,7 +135,7 @@
                             Orientation="Vertical"
                             Margin="0,35,0,0">
 
-                    <Image Source="/Resources/Logo.png"
+                    <Image Source="/Resources/Logo_base.png"
                            Width="100" Height="100"/>
 
                     <TextBlock Text="StayWise"
@@ -180,15 +181,16 @@
                                Margin="0,15,0,0"/>
 
                     <PasswordBox x:Name="txtPassword"                             
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"                            
-                             Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"                           
-                             VerticalContentAlignment="Center"                          
-                             Padding="20,0,0,0">
+             FontSize="13"
+             FontWeight="Medium"
+             FontFamily="Montserrat"                            
+             Foreground="White"
+             CaretBrush="LightGray"
+             BorderBrush="DarkGray"
+             BorderThickness="0,0,0,2"                           
+             VerticalContentAlignment="Center"                          
+             Padding="20,0,0,0"
+             PasswordChanged="PasswordBox_PasswordChanged">
 
                         <PasswordBox.Background>
                             <ImageBrush ImageSource="pack://application:,,,/Resources/key-icon.png"

@@ -13,6 +13,8 @@
     <None Remove="Resources\back-image.jpg.url" />
     <None Remove="Resources\key-icon.png" />
     <None Remove="Resources\logo.png" />
+    <None Remove="Resources\logo.svg" />
+    <None Remove="Resources\Logo_base.png" />
     <None Remove="Resources\user-icon.png" />
   </ItemGroup>
 
@@ -32,7 +34,7 @@
   <ItemGroup>
     <Resource Include="Resources\back-image.jpg" />
     <Resource Include="Resources\key-icon.png" />
-    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\Logo_base.png" />
     <Resource Include="Resources\user-icon.png" />
   </ItemGroup>
 

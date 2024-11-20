@@ -11,6 +11,7 @@ namespace StayWise.Views
         public AddCustomerView()
         {
             InitializeComponent();
+            this.DataContext = new AddCustomerViewModel();
         }
     }
 }

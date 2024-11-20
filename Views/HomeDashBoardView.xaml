@@ -154,6 +154,91 @@
                     </lvc:CartesianChart>
                 </Grid>
             </Border>
+
+            <Border Grid.Column="1"
+        Background="{StaticResource panelColor}"
+        CornerRadius="10">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Recent Activity"
+                  FontSize="20"
+                  FontWeight="SemiBold"
+                  Foreground="{StaticResource titleColor2}"/>
+
+                    <ScrollViewer Grid.Row="1" 
+                     Margin="0,20,0,0"
+                     VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding RecentActivities}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{StaticResource panelOverColor}"
+                                Margin="0,0,0,10"
+                                CornerRadius="5"
+                                Padding="15">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Activity Icon -->
+                                            <fa:IconImage Grid.RowSpan="2" 
+                                            Width="24" Height="24"
+                                            Margin="0,0,15,0">
+                                                <fa:IconImage.Style>
+                                                    <Style TargetType="fa:IconImage">
+                                                        <Setter Property="Foreground" Value="{StaticResource color2}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Type}" Value="NewResident">
+                                                                <Setter Property="Icon" Value="UserPlus"/>
+                                                                <Setter Property="Foreground" Value="{StaticResource color2}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Type}" Value="Payment">
+                                                                <Setter Property="Icon" Value="MoneyBill"/>
+                                                                <Setter Property="Foreground" Value="{StaticResource color3}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Type}" Value="RoomStatus">
+                                                                <Setter Property="Icon" Value="DoorOpen"/>
+                                                                <Setter Property="Foreground" Value="{StaticResource color8}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Type}" Value="Maintenance">
+                                                                <Setter Property="Icon" Value="Wrench"/>
+                                                                <Setter Property="Foreground" Value="{StaticResource color4}"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </fa:IconImage.Style>
+                                            </fa:IconImage>
+
+                                            <!-- Activity Message -->
+                                            <TextBlock Grid.Column="1"
+                                         Text="{Binding Message}"
+                                         Foreground="{StaticResource titleColor2}"
+                                         TextWrapping="Wrap"/>
+
+                                            <!-- Time Ago -->
+                                            <TextBlock Grid.Row="1"
+                                         Grid.Column="1"
+                                         Text="{Binding TimeAgo}"
+                                         Foreground="{StaticResource plainTextColor2}"
+                                         FontSize="12"
+                                         Margin="0,5,0,0"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

@@ -29,10 +29,8 @@ namespace StayWise.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public AddCustomerViewModel(INavigationService navigationService, IDialogService dialogService)
+        public AddCustomerViewModel()
         {
-            _navigationService = navigationService;
-            _dialogService = dialogService;
             Customer = new CustomerDetails();
 
             SaveCommand = new RelayCommand(async () => await SaveCustomerAsync(), () => CanSave());
