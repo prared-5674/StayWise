@@ -64,5 +64,10 @@ namespace StayWise.Views
         {
             MainContent.Content = new AddCustomerView();
         }
+
+        private void ShowAdminSettingButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new AdminSettingsView();
+        }
     }
 }

@@ -35,47 +35,75 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="35" Margin="15,25,0,40">
-                        <Image Source="pack://application:,,,/Resources/Logo_base.png" Height="30"/>
-                        <TextBlock Text="StayWise"
-                                 Foreground="Black"
-                                 FontSize="25"
-                                 FontFamily="Montserrat"
-                                 FontWeight="Medium"
-                                 VerticalAlignment="Center"
-                                 Margin="10,0,0,0"/>
+                <Grid>
+                    <!-- Main Content -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <!-- Main content -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Footer -->
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" Height="35" Margin="15,25,0,40">
+                            <Image Source="pack://application:,,,/Resources/Logo_base.png" Height="30"/>
+                            <TextBlock Text="StayWise"
+                           Foreground="Black"
+                           FontSize="25"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+                        </StackPanel>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color2}"
+                         Click="ShowDashboardButton_Click"
+                         IsChecked="True">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Dashboard" Foreground="Black" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color2}"
+                         Click="ShowAddCustomerViewButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Add Customer" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color2}"
+                         Click="ShowCustomerViewButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Users" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Customer List" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color2}"
+                         Click="ShowAdminSettingButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Gear" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Admin Settings" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
                     </StackPanel>
 
-                    <RadioButton Style="{StaticResource menuButton}"
-                               Tag="{StaticResource color2}"
-                                 Click="ShowDashboardButton_Click"
-                               IsChecked="True">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Dashboard" Foreground="Black" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                               Tag="{StaticResource color2}"
-                                 Click="ShowAddCustomerViewButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Add Customer" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    
-                    <RadioButton Style="{StaticResource menuButton}"
-                               Tag="{StaticResource color2}"
-                                 Click="ShowCustomerViewButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Customer List" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                </StackPanel>
+                    <!-- Footer Content -->
+                    <TextBlock Grid.Row="1"
+                   Text="© 2024 StayWise. All rights reserved."
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="White"
+                   Margin="0,10,0,10"/>
+                </Grid>
             </Border>
+
 
             <Border CornerRadius="0,10,10,0" Grid.Column="1">
                 <Border.Background>

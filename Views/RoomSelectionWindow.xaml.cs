@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using StayWise.ViewModels;
+using System.Windows;
 
 namespace StayWise.Views
 {

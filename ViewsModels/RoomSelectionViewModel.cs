@@ -25,7 +25,7 @@ namespace StayWise.ViewModels
 
             SelectRoomCommand = new RelayCommand<Room>(SelectRoom);
             SelectBedCommand = new RelayCommand<Bed>(SelectBed);
-            ConfirmSelectionCommand = new RelayCommand(ConfirmSelection, CanConfirmSelection);
+            ConfirmSelectionCommand = new RelayCommand(ConfirmSelection);
             CancelCommand = new RelayCommand(Cancel);
         }
 
@@ -102,11 +102,12 @@ namespace StayWise.ViewModels
             {
                 FloorNumber = int.Parse(SelectedRoom.RoomNumber[0].ToString()),
                 RoomNumber = SelectedRoom.RoomNumber,
-                BedNumber = SelectedBed.BedNumber,
+                BedNumber = 1,
+                IsSelected = true,
                 Amount = SelectedRoom.PricePerBed
             };
 
-            // Close dialog with true result
+           // Close dialog with true result
             CloseDialogWithResult(true);
         }
 

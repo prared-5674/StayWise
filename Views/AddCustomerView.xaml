@@ -39,23 +39,25 @@
                                      Margin="0,0,0,10"
                                      Foreground="{StaticResource titleColor2}"/>
 
-                            <TextBlock Foreground="{StaticResource titleColor3}"
-                                     TextWrapping="Wrap">
-                                <Run Text="Selected Room: "/>
+<TextBlock Foreground="{StaticResource titleColor3}" 
+           TextWrapping="Wrap">
+    <Run Text="Selected Room: "/>
                                 <Run Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
-                                <Run Text=" | Bed: "/>
+    <Run Text=" | Bed: "/>
                                 <Run Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
-                                <Run Text=" | Amount: ₹"/>
+    <Run Text=" | Amount: ₹"/>
                                 <Run Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
-                            </TextBlock>
+</TextBlock>
                         </StackPanel>
 
                         <Button Grid.Column="1"
                                 Content="Select Room"
                                 Command="{Binding SelectRoomCommand}"
                                 Style="{StaticResource controlButton}"
-                                Background="MediumVioletRed"
-                                Width="120"
+                                Background="Honeydew"
+                                Width="100"
+                                Height="25"
+                                
                                 Tag="{StaticResource color2}"
                                 VerticalAlignment="Center"/>
                     </Grid>
@@ -340,15 +342,12 @@
                       Orientation="Horizontal"
                       HorizontalAlignment="Right"
                       Margin="0,20,0,0">
-                <Button Content="Cancel"
-                        Command="{Binding CancelCommand}"
-                        Style="{StaticResource controlButton}"
-                        Height="25"
-                        Width="100"/>
                 <Button Content="Save"
                         Command="{Binding SaveCommand}"
                         Style="{StaticResource controlButton}"
+                        Height="25"
                         Width="100"
+                        Margin="0,0,10,0"
                         Tag="{StaticResource color2}"/>
             </StackPanel>
         </Grid>

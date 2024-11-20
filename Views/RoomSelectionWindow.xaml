@@ -5,6 +5,7 @@
         xmlns:converters="clr-namespace:StayWise.Converters;assembly=StayWise"
         Title="Select Room" 
         Height="600" Width="800"
+        WindowStyle="None"
         WindowStartupLocation="CenterOwner">
 
     <Window.Background>

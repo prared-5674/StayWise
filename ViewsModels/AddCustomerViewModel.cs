@@ -19,7 +19,8 @@ namespace StayWise.ViewModels
         private readonly IDialogService _dialogService;
 
         public CustomerDetails Customer { get; private set; }
-        public RoomAllocation SelectedRoom { get; private set; }
+        public RoomAllocation SelectedRoom { get; set; }
+        public RoomSelectionViewModel roomSelectionViewModel { get; set; }
         public bool HasUnsavedChanges => _isDirty && Customer.PersonalInfo.HasBasicInfo;
 
         public ICommand SaveCommand { get; }
@@ -32,7 +33,7 @@ namespace StayWise.ViewModels
         public AddCustomerViewModel()
         {
             Customer = new CustomerDetails();
-
+            roomSelectionViewModel = new RoomSelectionViewModel();
             SaveCommand = new RelayCommand(async () => await SaveCustomerAsync(), () => CanSave());
             CancelCommand = new RelayCommand(async () => await TryCancelAsync());
             BrowseImageCommand = new RelayCommand(() => BrowseIdProof());
@@ -96,14 +97,13 @@ namespace StayWise.ViewModels
 
         private void ShowRoomSelection()
         {
-            var viewModel = new RoomSelectionViewModel();
             var window = new RoomSelectionWindow
             {
-                DataContext = viewModel,
+                DataContext = roomSelectionViewModel,
                 Owner = Application.Current.MainWindow
             };
 
-            viewModel.RequestClose += (result) =>
+            roomSelectionViewModel.RequestClose += (result) =>
             {
                 window.DialogResult = result;
                 window.Close();
@@ -111,7 +111,7 @@ namespace StayWise.ViewModels
 
             if (window.ShowDialog() == true)
             {
-                SelectedRoom = viewModel.SelectedAllocation;
+                SelectedRoom = roomSelectionViewModel.SelectedAllocation;
                 _isDirty = true;
             }
         }
