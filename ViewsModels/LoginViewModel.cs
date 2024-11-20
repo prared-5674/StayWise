@@ -32,8 +32,6 @@ namespace StayWise.ViewsModels
         public LoginViewModel()
         {
             userRepository = new UserRepository();
-            LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
         }
 
         private bool CanExecuteLoginCommand(object obj)
@@ -59,11 +57,6 @@ namespace StayWise.ViewsModels
             {
                 ErrorMessage = "* Invalid username or password";
             }
-        }
-
-        private void ExecuteRecoverPassCommand(string username, string email)
-        {
-            throw new NotImplementedException();
         }
     }
 }

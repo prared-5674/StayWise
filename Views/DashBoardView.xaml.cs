@@ -14,6 +14,7 @@ namespace StayWise.Views
         public DashBoardView()
         {
             InitializeComponent();
+            MainContent.Content = new HomeDashBoardView();
             this.DataContext = new MainViewModel();
 
         }
@@ -47,6 +48,21 @@ namespace StayWise.Views
             if (this.WindowState == WindowState.Normal)
                 this.WindowState = WindowState.Maximized;
             else this.WindowState = WindowState.Normal;
+        }
+
+        private void ShowCustomerViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new CustomerView();
+        }
+
+        private void ShowDashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new HomeDashBoardView();
+        }
+
+        private void ShowAddCustomerViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new AddCustomerView();
         }
     }
 }

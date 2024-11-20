@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using StayWise.ViewsModels;
+using System.Windows.Controls;
 
 namespace StayWise.Views
 {
@@ -10,6 +11,7 @@ namespace StayWise.Views
         public CustomerView()
         {
             InitializeComponent();
+            this.DataContext = new CustomerViewModel();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace StayWise.ViewsModels
 {
-    internal class CustomerViewModel : ViewModelBase
+    internal class CustomerViewModel
     {
         public CustomerViewModel()
         {
