@@ -59,7 +59,7 @@
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="Button">
-                                                                    <Border Background="{StaticResource panelOverColor}"
+                                                                    <Border Background="LightGreen"
                                                                             BorderThickness="2"
                                                                             BorderBrush="{TemplateBinding BorderBrush}"
                                                                             CornerRadius="5">
