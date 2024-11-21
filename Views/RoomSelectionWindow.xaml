@@ -83,7 +83,7 @@
                                                         </Setter>
                                                         <Style.Triggers>
                                                             <DataTrigger Binding="{Binding IsSelected}" Value="True">
-                                                                <Setter Property="BorderBrush" Value="{StaticResource color2}"/>
+                                                                <Setter Property="BorderBrush" Value="{StaticResource color11}"/>
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
