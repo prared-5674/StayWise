@@ -39,7 +39,7 @@
                                      Margin="0,0,0,10"
                                      Foreground="{StaticResource titleColor2}"/>
 
-<TextBlock Foreground="{StaticResource titleColor3}" 
+                            <TextBlock Foreground="{StaticResource titleColor3}" 
            TextWrapping="Wrap">
     <Run Text="Selected Room: "/>
                                 <Run Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
@@ -47,7 +47,7 @@
                                 <Run Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
     <Run Text=" | Amount: ₹"/>
                                 <Run Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
-</TextBlock>
+                            </TextBlock>
                         </StackPanel>
 
                         <Button Grid.Column="1"

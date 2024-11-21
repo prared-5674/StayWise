@@ -103,18 +103,28 @@ namespace StayWise.ViewModels
                 Owner = Application.Current.MainWindow
             };
 
-            roomSelectionViewModel.RequestClose += (result) =>
+            Action<bool> closeHandler = null;
+            closeHandler = (result) =>
             {
-                window.DialogResult = result;
-                window.Close();
+                if (window.IsLoaded)
+                {
+                    window.DialogResult = result;
+                    window.Close();
+                }
+                roomSelectionViewModel.RequestClose -= closeHandler;
             };
 
-            if (window.ShowDialog() == true)
+            roomSelectionViewModel.RequestClose += closeHandler;
+
+            bool? result = window.ShowDialog();
+
+            if (result == true)
             {
                 SelectedRoom = roomSelectionViewModel.SelectedAllocation;
                 _isDirty = true;
             }
         }
+
 
         private async Task TryCancelAsync()
         {
