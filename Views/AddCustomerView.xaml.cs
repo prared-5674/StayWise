@@ -13,5 +13,18 @@ namespace StayWise.Views
             InitializeComponent();
             this.DataContext = new AddCustomerViewModel();
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.DataContext is AddCustomerViewModel viewModel)
+            {
+                viewModel.ShowRoomSelection();
+                this.RoomNumber.Text = viewModel.SelectedRoom.RoomNumber.ToString();
+                this.BedNumber.Text = viewModel.SelectedRoom.BedNumber.ToString();
+                this.AmountValue.Text = viewModel.SelectedRoom.Amount.ToString();
+
+
+            }
+        }
     }
 }

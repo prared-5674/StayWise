@@ -39,15 +39,15 @@
                                      Margin="0,0,0,10"
                                      Foreground="{StaticResource titleColor2}"/>
 
-                            <TextBlock Foreground="{StaticResource titleColor3}" 
-           TextWrapping="Wrap">
-    <Run Text="Selected Room: "/>
-                                <Run Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
-    <Run Text=" | Bed: "/>
-                                <Run Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
-    <Run Text=" | Amount: ₹"/>
-                                <Run Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="RoomInfoTextBlock" Foreground="{StaticResource titleColor3}" TextWrapping="Wrap">
+    <Run x:Name="RoomLabel" Text="Selected Room: "/>
+    <Run x:Name="RoomNumber" Text="{Binding SelectedRoom.RoomNumber, FallbackValue='Not Selected'}" FontWeight="SemiBold"/>
+    <Run x:Name="BedLabel" Text=" | Bed: "/>
+    <Run x:Name="BedNumber" Text="{Binding SelectedRoom.BedNumber, FallbackValue='--'}" FontWeight="SemiBold"/>
+    <Run x:Name="AmountLabel" Text=" | Amount: ₹"/>
+    <Run x:Name="AmountValue" Text="{Binding SelectedRoom.Amount, StringFormat='N0', FallbackValue='--'}" FontWeight="SemiBold"/>
                             </TextBlock>
+
                         </StackPanel>
 
                         <Button Grid.Column="1"
@@ -57,7 +57,7 @@
                                 Background="Honeydew"
                                 Width="100"
                                 Height="25"
-                                
+                                Click="Button_Click"
                                 Tag="{StaticResource color2}"
                                 VerticalAlignment="Center"/>
                     </Grid>

@@ -37,8 +37,6 @@ namespace StayWise.ViewModels
             SaveCommand = new RelayCommand(async () => await SaveCustomerAsync(), () => CanSave());
             CancelCommand = new RelayCommand(async () => await TryCancelAsync());
             BrowseImageCommand = new RelayCommand(() => BrowseIdProof());
-
-            SelectRoomCommand = new RelayCommand(ShowRoomSelection);
         }
 
         private void OnCustomerPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -95,7 +93,7 @@ namespace StayWise.ViewModels
             }
         }
 
-        private void ShowRoomSelection()
+        public void ShowRoomSelection()
         {
             var window = new RoomSelectionWindow
             {
