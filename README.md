@@ -39,14 +39,13 @@ StayWise is a modern, feature-rich WPF application designed to streamline hostel
 - **Charts**: LiveCharts2
 - **Icons**: FontAwesome.Sharp
 - **DI**: Microsoft.Extensions.DependencyInjection
-- **Database**: [Your DB Choice]
+- **Database**: SQLite
 
 ## 🎯 Getting Started
 
 ### Prerequisites
 - Visual Studio 2022
 - .NET Core 7.0 or later
-- [Other dependencies]
 
 ### Installation
 
