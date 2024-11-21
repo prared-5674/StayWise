@@ -79,7 +79,7 @@ dotnet run
 ## 🎨 Screenshots
 
 ### Dashboard
-![Dashboard](assets/screenshots/dashboard.png)
+![Dashboard](Resources/dashboard.png)
 
 ## 🤝 Contributing
 
