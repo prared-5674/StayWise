@@ -102,6 +102,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Your Name - [@prared-5674](https://twitter.com/prared-5674)
+[@prared-5674](https://twitter.com/prared-5674)
 
 Project Link: [https://github.com/prared-5674/staywise](https://github.com/prared-5674/staywise)
